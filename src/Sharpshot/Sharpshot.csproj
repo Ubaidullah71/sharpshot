@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>Sharpshot</RootNamespace>
+    <AssemblyTitle>Sharpshot</AssemblyTitle>
+    <Description>Take a screenshot, get a full-quality link from your own Cloudflare R2 CDN.</Description>
+
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <ApplicationVisualStyles>true</ApplicationVisualStyles>
+    <ApplicationUseCompatibleTextRendering>false</ApplicationUseCompatibleTextRendering>
+    <ApplicationIcon>..\..\assets\sharpshot.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- The UI is built in code, not the WinForms designer, so designer-serialization hints don't apply. -->
+    <NoWarn>$(NoWarn);WFO1000</NoWarn>
+    <!-- A tray app spends nearly all its time idle: keep the memory footprint small. -->
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <TieredPGO>true</TieredPGO>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\assets\sharpshot.ico" LogicalName="Sharpshot.ico" />
+    <EmbeddedResource Include="..\..\assets\sharpshot-busy.ico" LogicalName="Sharpshot.Busy.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Sharpshot.Tests" />
+  </ItemGroup>
+
+</Project>
